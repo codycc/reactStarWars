@@ -1,4 +1,4 @@
-##Front end exercise consisting of the Star Wars Api and React.
+## Front end exercise consisting of the Star Wars Api and React.
 
 STEPS TO RUN
 
