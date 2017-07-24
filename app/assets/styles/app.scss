@@ -1,0 +1,22 @@
+@import "base/variables";
+
+//structure
+@import "components/structure";
+@import "global";
+//typography
+@import "base/typography";
+//fonts
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Share+Tech+Mono');
+
+// Foundation
+// @import "base/foundation-settings";
+// @import "foundation";
+// @include foundation-everything;
+//Components
+
+@import "components/character-card";
+@import "components/character-rating";
+@import "components/character-search";
+@import "components/character-detail";
+@import "components/character-comment";

@@ -1,0 +1,22 @@
+.character-rating {
+  clear:both;
+  button {
+    background:none;
+    border:none;
+    width: 50%;
+    border: 1px solid $aqua;
+    height:40px;
+    position:relative;
+    float:left;
+    position:absolute;
+    bottom:0px;
+    color: $aqua;
+
+  }
+  .button-left{
+    left:0px;
+  }
+  .button-right{
+    right:0px;
+  }
+}

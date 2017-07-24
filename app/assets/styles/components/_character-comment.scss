@@ -1,0 +1,38 @@
+.character-comment {
+  width: 100%;
+  float:left;
+  height: 600px;
+  position:relative;
+  background-color: $slate-grey;
+  margin-bottom: 60px;
+  input {
+    position: absolute;
+    bottom:0px;
+    right:0px;
+    left:0px;
+    width:100%;
+    height: 30px;
+    font-size:30px;
+    background-color: $slate-grey;
+    border: 1px solid $aqua;
+    color: $aqua;
+  }
+  button {
+    display:none;
+  }
+  .comment-list {
+    height: 560px;
+    overflow:scroll;
+  }
+  .comment-list p {
+    border: 1px solid $aqua;
+    display:block;
+    padding: 10px 10px;
+    font-size:20px;
+
+  }
+  @media screen and (min-width: 992px) {
+    width:40%;
+
+  }
+}

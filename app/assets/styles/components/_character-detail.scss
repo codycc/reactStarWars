@@ -1,0 +1,33 @@
+.character-detail {
+  .character-full-info {
+    width:100%;
+    float:left;
+    overflow:scroll;
+    height: 600px;
+    p {
+      font-size: 25px;
+    }
+    a {
+      text-decoration: none;
+      color: $ocean-blue;
+      font-size: 30px;
+
+    }
+    span {
+      font-weight: lighter;
+      color: $aqua;
+    }
+    @media screen and (min-width: 992px) {
+      width:60%;
+    }
+  }
+
+
+  background-color: $slate-grey;
+  margin-top:10%;
+  height: 600px;
+
+  p {
+    color: $aqua;
+  }
+}
