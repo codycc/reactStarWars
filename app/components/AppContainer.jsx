@@ -45,26 +45,10 @@ var AppContainer = React.createClass({
       }, function(e) {
         console.log(e,'an error')
       });
-      // 
-      // starWarsAPI.getCharacterInfo(this, APIPageNumber).then(function(characterDetail) {
-      //   console.log(characterDetail, 'detail')
-      //   var updatedResults = characterDetail.map((character) => {
-      //     that.setState({
-      //       characters: [
-      //         ...that.state.characters,
-      //         character
-      //       ]
-      //     });
-      //   });
-      // }, function(e) {
-      //   console.log(e,'an error')
-      // })
 
       this.setState({
         APIPageNumber: APIPageNumber + 1
       })
-
-
 
     } else {
       this.setState({
@@ -133,8 +117,6 @@ var AppContainer = React.createClass({
     var characterObject = selectedCharacter[0];
     var {characters, searchText} = this.state;
     var filteredCharacters = starWarsAPI.filterCharacters(characters, searchText);
-    //style
-
 
     const childrenWithProps = React.Children.map(this.props.children,
      (child) => React.cloneElement(child, {

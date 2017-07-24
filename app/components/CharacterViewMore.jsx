@@ -1,12 +1,16 @@
 var React = require('react');
+var $ = require('jquery');
 
 var CharacterViewMore = React.createClass({
   onCharactersLoad: function() {
     this.props.onCharactersLoad()
   },
   render: function() {
+
     return (
-      <button onClick={this.onCharactersLoad}>View More Characters</button>
+      <div>
+        <button className="character-view-more" onClick={this.onCharactersLoad}>View More Characters</button>
+      </div>
     )
   }
 })

@@ -63,11 +63,8 @@ var CharacterDetailView = React.createClass({
         <p className="title">starShipNames:</p>
         <ul> {unwrapStarShips}</ul>
 
-
       </div>
-
           <CharacterComment id={this.props.id} comments={this.props.comments} onCommentSubmit={this.props.onCommentSubmit} />
-
       </div>
     );
   }

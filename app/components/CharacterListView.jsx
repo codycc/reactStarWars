@@ -3,8 +3,10 @@ var CharacterSearch = require('CharacterSearch');
 var CharacterList = require('CharacterList');
 var CharacterViewMore = require('CharacterViewMore');
 
+
 var CharacterListView = React.createClass({
   render: function() {
+
     var {characters} = this.props
     return (
       <div>

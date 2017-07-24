@@ -25527,20 +25527,6 @@
 	      }, function (e) {
 	        console.log(e, 'an error');
 	      });
-	      // 
-	      // starWarsAPI.getCharacterInfo(this, APIPageNumber).then(function(characterDetail) {
-	      //   console.log(characterDetail, 'detail')
-	      //   var updatedResults = characterDetail.map((character) => {
-	      //     that.setState({
-	      //       characters: [
-	      //         ...that.state.characters,
-	      //         character
-	      //       ]
-	      //     });
-	      //   });
-	      // }, function(e) {
-	      //   console.log(e,'an error')
-	      // })
 
 	      this.setState({
 	        APIPageNumber: APIPageNumber + 1
@@ -25620,8 +25606,6 @@
 	        searchText = _state.searchText;
 
 	    var filteredCharacters = starWarsAPI.filterCharacters(characters, searchText);
-	    //style
-
 
 	    var childrenWithProps = React.Children.map(this.props.children, function (child) {
 	      return React.cloneElement(child, _extends({
@@ -25865,6 +25849,7 @@
 	'use strict';
 
 	var React = __webpack_require__(7);
+	var $ = __webpack_require__(331);
 
 	var CharacterViewMore = React.createClass({
 	  displayName: 'CharacterViewMore',
@@ -25873,10 +25858,15 @@
 	    this.props.onCharactersLoad();
 	  },
 	  render: function render() {
+
 	    return React.createElement(
-	      'button',
-	      { onClick: this.onCharactersLoad },
-	      'View More Characters'
+	      'div',
+	      null,
+	      React.createElement(
+	        'button',
+	        { className: 'character-view-more', onClick: this.onCharactersLoad },
+	        'View More Characters'
+	      )
 	    );
 	  }
 	});
@@ -26192,77 +26182,6 @@
 	          }, function (err) {
 	            throw new Error('Unable to grab plaent of origin');
 	          });
-
-	          //GRABBING CHARACTER SPECIES
-	          var characterSpeciesUrl = character.species;
-	          axios.get(characterSpeciesUrl).then(function (res) {
-	            if (res.data.cod && res.data.message) {
-	              throw new Error(res.data.message);
-	            } else {
-	              character.speciesName = res.data.name;
-	              return;
-	            }
-	          }, function (err) {
-	            throw new Error('Unable to grab plaent of origin');
-	          });
-
-	          // GRABBING CHARACTER FILMS
-	          var characterFilmsUrls = character.films;
-	          characterFilmsUrls.forEach(function (filmUrl) {
-	            axios.get(filmUrl).then(function (res) {
-	              if (res.data.cod && res.data.message) {
-	                throw new Error(res.data.message);
-	              } else {
-	                character.filmNames.push(res.data.title);
-	              }
-	            }, function (err) {
-	              throw new Error('Unable to grab plaent of origin');
-	            });
-	          });
-
-	          // GRABBING CHARACTER STARSHIPS
-	          var characterStarShipUrls = character.starships;
-	          characterStarShipUrls.forEach(function (starShipUrl) {
-	            axios.get(starShipUrl).then(function (res) {
-	              if (res.data.cod && res.data.message) {
-	                throw new Error(res.data.message);
-	              } else {
-	                character.starShipNames.push(res.data.name);
-	              }
-	            }, function (err) {
-	              throw new Error('Unable to grab plaent of origin');
-	            });
-	          });
-
-	          // GRABBING CHARACTER VEHICLES
-	          var characterVehicleUrls = character.vehicles;
-	          characterVehicleUrls.forEach(function (vehicleUrl) {
-	            axios.get(vehicleUrl).then(function (res) {
-	              if (res.data.cod && res.data.message) {
-	                throw new Error(res.data.message);
-	              } else {
-	                character.vehicleNames.push(res.data.name);
-	              }
-	            }, function (err) {
-	              throw new Error('Unable to grab plaent of origin');
-	            });
-	          });
-
-	          return character;
-	        });
-	        return updatedCharacterInformation;
-	      }
-	    }, function (err) {
-	      throw new Error('Unable to grab characters');
-	    });
-	  },
-	  grabCharacterDetail: function grabCharacterDetail(that, APIPageNumber) {
-	    var STAR_WARS_PEOPLE_FULL_URL = STAR_WARS_PEOPLE_BASE_URL + ' + ' + APIPageNumber;
-	    return axios.get(STAR_WARS_PEOPLE_FULL_URL).then(function (res) {
-	      if (res.data.cod && res.data.message) {
-	        throw new Error(res.data.message);
-	      } else {
-	        var updatedCharacterInformation = res.data.results.map(function (character) {
 
 	          //GRABBING CHARACTER SPECIES
 	          var characterSpeciesUrl = character.species;
@@ -36636,7 +36555,7 @@
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Share+Tech+Mono);", ""]);
 
 	// module
-	exports.push([module.id, "div {\n  box-sizing: border-box; }\n\n.card-container {\n  padding: 10px;\n  float: left;\n  width: 100%; }\n  @media screen and (min-width: 768px) {\n    .card-container {\n      width: 33%; } }\n  @media screen and (min-width: 992px) {\n    .card-container {\n      width: 25%; } }\n\n.app-container {\n  max-width: 1200px;\n  display: block;\n  margin: 0 auto; }\n\nbody {\n  background-image: url(" + __webpack_require__(329) + ");\n  background-repeat: no-repeat;\n  background-attachment: fixed;\n  background-position: center; }\n\np, a, h1, h2, h3, h4, h5, h6, input {\n  font-family: 'Share Tech Mono', monospace; }\n\np {\n  margin: 2px 0px;\n  margin-bottom: 0px; }\n\n.character-card {\n  height: 300px;\n  position: relative;\n  background-color: rgba(0, 0, 0, 0.62);\n  padding: 10px; }\n  .character-card p, .character-card h2, .character-card h3, .character-card a {\n    text-transform: uppercase; }\n  .character-card a {\n    color: #ACFFDC;\n    text-decoration: none;\n    letter-spacing: 1px;\n    font-size: 1.1rem; }\n  .character-card p {\n    color: #ACFFDC; }\n  .character-card h2 {\n    font-size: 2.2rem;\n    margin: 3px 0px;\n    color: #ACFFDC; }\n  .character-card h3 {\n    color: #234AB0; }\n  .character-card .rating {\n    position: absolute;\n    right: 5px;\n    bottom: 15%;\n    font-size: 3rem;\n    font-weight: lighter; }\n  .character-card .more-info {\n    position: absolute;\n    left: 10px;\n    bottom: 18%; }\n  .character-card .supporting-text {\n    transition: all 2s fade-in; }\n\n.character-rating {\n  clear: both; }\n  .character-rating button {\n    background: none;\n    border: none;\n    width: 50%;\n    border: 1px solid #ACFFDC;\n    height: 40px;\n    position: relative;\n    float: left;\n    position: absolute;\n    bottom: 0px;\n    color: #ACFFDC; }\n  .character-rating .button-left {\n    left: 0px; }\n  .character-rating .button-right {\n    right: 0px; }\n\n.character-search input {\n  height: 60px;\n  width: 500px;\n  background-color: rgba(0, 0, 0, 0.62);\n  color: #ACFFDC;\n  font-size: 30px;\n  border: none;\n  display: block;\n  margin: 0 auto;\n  padding: 3px 10px; }\n\n.character-detail {\n  background-color: rgba(0, 0, 0, 0.62);\n  margin-top: 10%;\n  height: 600px; }\n  .character-detail .character-full-info {\n    width: 100%;\n    float: left;\n    overflow: scroll;\n    height: 600px; }\n    .character-detail .character-full-info p {\n      font-size: 25px; }\n    .character-detail .character-full-info a {\n      text-decoration: none;\n      color: #234AB0;\n      font-size: 30px; }\n    .character-detail .character-full-info span {\n      font-weight: lighter;\n      color: #ACFFDC; }\n    @media screen and (min-width: 992px) {\n      .character-detail .character-full-info {\n        width: 60%; } }\n  .character-detail p {\n    color: #ACFFDC; }\n\n.character-comment {\n  width: 100%;\n  float: left;\n  height: 600px;\n  position: relative;\n  background-color: rgba(0, 0, 0, 0.62);\n  margin-bottom: 60px; }\n  .character-comment input {\n    position: absolute;\n    bottom: 0px;\n    right: 0px;\n    left: 0px;\n    width: 100%;\n    height: 30px;\n    font-size: 30px;\n    background-color: rgba(0, 0, 0, 0.62);\n    border: 1px solid #ACFFDC;\n    color: #ACFFDC; }\n  .character-comment button {\n    display: none; }\n  .character-comment .comment-list {\n    height: 560px;\n    overflow: scroll; }\n  .character-comment .comment-list p {\n    border: 1px solid #ACFFDC;\n    display: block;\n    padding: 10px 10px;\n    font-size: 20px; }\n  @media screen and (min-width: 992px) {\n    .character-comment {\n      width: 40%; } }\n", ""]);
+	exports.push([module.id, "div {\n  box-sizing: border-box; }\n\n.card-container {\n  padding: 10px;\n  float: left;\n  width: 100%; }\n  @media screen and (min-width: 768px) {\n    .card-container {\n      width: 33%; } }\n  @media screen and (min-width: 992px) {\n    .card-container {\n      width: 25%; } }\n\n.app-container {\n  max-width: 1200px;\n  display: block;\n  margin: 0 auto; }\n\nbody {\n  background-image: url(" + __webpack_require__(329) + ");\n  background-repeat: no-repeat;\n  background-attachment: fixed;\n  background-position: center; }\n\np, a, h1, h2, h3, h4, h5, h6, input, button {\n  font-family: 'Share Tech Mono', monospace; }\n\np {\n  margin: 2px 0px;\n  margin-bottom: 0px; }\n\n.character-card {\n  height: 300px;\n  position: relative;\n  background-color: rgba(0, 0, 0, 0.62);\n  padding: 10px; }\n  .character-card p, .character-card h2, .character-card h3, .character-card a {\n    text-transform: uppercase; }\n  .character-card a {\n    color: #ACFFDC;\n    text-decoration: none;\n    letter-spacing: 1px;\n    font-size: 1.1rem; }\n  .character-card p {\n    color: #ACFFDC; }\n  .character-card h2 {\n    font-size: 2.2rem;\n    margin: 3px 0px;\n    color: #ACFFDC; }\n  .character-card h3 {\n    color: #234AB0; }\n  .character-card .rating {\n    position: absolute;\n    right: 5px;\n    bottom: 15%;\n    font-size: 3rem;\n    font-weight: lighter; }\n  .character-card .more-info {\n    position: absolute;\n    left: 10px;\n    bottom: 18%; }\n  .character-card .supporting-text {\n    transition: all 2s; }\n\n.character-rating {\n  clear: both; }\n  .character-rating button {\n    background: none;\n    border: none;\n    width: 50%;\n    border: 1px solid #ACFFDC;\n    height: 40px;\n    position: relative;\n    float: left;\n    position: absolute;\n    bottom: 0px;\n    color: #ACFFDC; }\n  .character-rating .button-left {\n    left: 0px; }\n  .character-rating .button-right {\n    right: 0px; }\n\n.character-search input {\n  height: 60px;\n  width: 500px;\n  background-color: rgba(0, 0, 0, 0.62);\n  color: #ACFFDC;\n  font-size: 30px;\n  border: none;\n  display: block;\n  margin: 0 auto;\n  padding: 3px 10px; }\n\n.character-detail {\n  background-color: rgba(0, 0, 0, 0.62);\n  margin-top: 10%;\n  height: 600px; }\n  .character-detail .character-full-info {\n    width: 100%;\n    float: left;\n    overflow: scroll;\n    height: 600px; }\n    .character-detail .character-full-info p {\n      font-size: 25px; }\n    .character-detail .character-full-info a {\n      text-decoration: none;\n      color: #234AB0;\n      font-size: 30px; }\n    .character-detail .character-full-info span {\n      font-weight: lighter;\n      color: #ACFFDC; }\n    @media screen and (min-width: 992px) {\n      .character-detail .character-full-info {\n        width: 60%; } }\n  .character-detail p {\n    color: #ACFFDC; }\n\n.character-comment {\n  width: 100%;\n  float: left;\n  height: 600px;\n  position: relative;\n  background-color: rgba(0, 0, 0, 0.62);\n  margin-bottom: 60px; }\n  .character-comment input {\n    position: absolute;\n    bottom: 0px;\n    right: 0px;\n    left: 0px;\n    width: 100%;\n    height: 30px;\n    font-size: 30px;\n    background-color: rgba(0, 0, 0, 0.62);\n    border: 1px solid #ACFFDC;\n    color: #ACFFDC; }\n  .character-comment button {\n    display: none; }\n  .character-comment .comment-list {\n    height: 560px;\n    overflow: scroll; }\n  .character-comment .comment-list p {\n    border: 1px solid #ACFFDC;\n    display: block;\n    padding: 10px 10px;\n    font-size: 20px;\n    color: white; }\n  @media screen and (min-width: 992px) {\n    .character-comment {\n      width: 40%; } }\n\n.character-view-more {\n  background-color: rgba(0, 0, 0, 0.62);\n  font-size: 30px;\n  padding: 10px;\n  border: 1px solid #ACFFDC;\n  color: white;\n  cursor: pointer;\n  font-weight: lighter; }\n", ""]);
 
 	// exports
 
@@ -36954,6 +36873,12 @@
 			URL.revokeObjectURL(oldSrc);
 	}
 
+
+/***/ }),
+/* 331 */
+/***/ (function(module, exports) {
+
+	module.exports = jQuery;
 
 /***/ })
 /******/ ]);
