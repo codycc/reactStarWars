@@ -21,7 +21,6 @@ var AppContainer = React.createClass({
     var {APIPageNumber} = this.state;
     if(APIPageNumber <= 8) {
       starWarsAPI.getCharacterInfo(this,APIPageNumber).then(function(charactersInfo) {
-        console.log('in app container')
         var updatedResults = charactersInfo.map((characterInfo) => {
           //setting default propertys on each character
           characterInfo["id"] = uuid();
@@ -34,7 +33,6 @@ var AppContainer = React.createClass({
           characterInfo["starShipNames"] = [];
           characterInfo["vehicleNames"] = [];
           characterInfo["speciesName"] = '';
-          console.log(characterInfo, 'iinfo')
           that.setState({
             characters: [
               ...that.state.characters,
